@@ -1,0 +1,153 @@
+/**
+ * @file
+ * Positioning for responsive layout .
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
+ */
+
+@import "base";
+
+/*
+ * Center the page.
+ */
+
+#page,
+.region-bottom {
+  /* For screen sizes larger than 1200px, prevent excessively long lines of text
+     by setting a max-width. */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+/*
+ * Containers for grid items and flow items.
+ */
+
+#header,
+#main,
+#footer {
+  @include container();
+}
+
+input {
+  max-width: 100%;
+}
+
+/*
+ * Navigation bar
+ */
+
+@include at-breakpoint($tablet-plus) {
+  #main {
+    padding-top: 3em; /* Move all the children of #main down to make room. */
+    position: relative;
+  }
+  #navigation {
+    position: absolute;
+    top: 0; /* Move the navbar up inside #main's padding. */
+    height: 3em;
+  }
+}
+
+@include at-breakpoint($tablet-only) {
+  /*
+   * The layout when there is only one sidebar, the left one.
+   */
+
+  .sidebar-first {
+    #content { /* Span 2 columns, starting in 2nd column from left. */
+      @include span-columns(8 omega, $total_columns);
+    }
+
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+      @include span-columns(4, $total_columns);
+    }
+  }
+
+  /*
+   * The layout when there is only one sidebar, the right one.
+   */
+
+  .sidebar-second {
+    #content { /* Span 2 columns, starting in 1st column from left. */
+      @include span-columns(8, $total_columns);
+    }
+
+    .region-sidebar-second { /* Span 1 column, starting in 3rd column from left. */
+      @include span-columns(4 omega, $total_columns);
+    }
+  }
+
+  /*
+   * The layout when there are two sidebars.
+   */
+
+  .two-sidebars {
+    #content { /* Span 2 columns, starting in 2nd column from left. */
+      @include span-columns(6, $total_columns);
+      float: right;
+    }
+
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+      @include span-columns(3, $total_columns);
+    }
+
+    .region-sidebar-second { /* Start a new row and span all 3 columns. */
+      @include span-columns(3 omega, $total_columns);
+    }
+  }
+}
+
+@include at-breakpoint($desktop-plus) {
+
+  /*
+   * The layout when there is only one sidebar, the left one.
+   */
+
+  .sidebar-first {
+    #content { /* Span 4 columns, starting in 2nd column from left. */
+      @include span-columns(9 omega, $total_columns);
+    }
+
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+      @include span-columns(3, $total_columns);
+    }
+  }
+
+  /*
+   * The layout when there is only one sidebar, the right one.
+   */
+
+  .sidebar-second {
+    #content { /* Span 4 columns, starting in 1st column from left. */
+      @include span-columns(9, $total_columns);
+    }
+
+    .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
+      @include span-columns(3 omega, $total_columns);
+    }
+  }
+
+  /*
+   * The layout when there are two sidebars.
+   */
+
+  .two-sidebars {
+    #content { /* Span 3 columns, starting in 2nd column from left. */
+      @include span-columns(8, $total_columns);
+    }
+
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+      @include span-columns(2, $total_columns);
+    }
+
+    .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
+      @include span-columns(2 omega, $total_columns);
+    }
+  }
+}

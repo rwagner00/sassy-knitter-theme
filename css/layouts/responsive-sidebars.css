@@ -1,0 +1,194 @@
+/**
+ * @file
+ * Positioning for responsive layout .
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
+ */
+/*
+ * Center the page.
+ */
+/* line 19, ../../sass/layouts/responsive-sidebars.scss */
+#page,
+.region-bottom {
+  /* For screen sizes larger than 1200px, prevent excessively long lines of text
+     by setting a max-width. */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+/*
+ * Containers for grid items and flow items.
+ */
+/* line 33, ../../sass/layouts/responsive-sidebars.scss */
+#header,
+#main,
+#footer {
+  max-width: 83em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#header:after,
+#main:after,
+#footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 37, ../../sass/layouts/responsive-sidebars.scss */
+input {
+  max-width: 100%;
+}
+
+/*
+ * Navigation bar
+ */
+@media (min-width: 480px) {
+  /* line 46, ../../sass/layouts/responsive-sidebars.scss */
+  #main {
+    padding-top: 3em;
+    /* Move all the children of #main down to make room. */
+    position: relative;
+  }
+
+  /* line 50, ../../sass/layouts/responsive-sidebars.scss */
+  #navigation {
+    position: absolute;
+    top: 0;
+    /* Move the navbar up inside #main's padding. */
+    height: 3em;
+  }
+}
+@media (min-width: 480px) and (max-width: 959px) {
+  /*
+   * The layout when there is only one sidebar, the left one.
+   */
+  /* line 63, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first #content {
+    /* Span 2 columns, starting in 2nd column from left. */
+    width: 66.26506%;
+    float: right;
+    margin-right: 0;
+  }
+  /* line 67, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+    width: 32.53012%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+
+  /*
+   * The layout when there is only one sidebar, the right one.
+   */
+  /* line 77, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-second #content {
+    /* Span 2 columns, starting in 1st column from left. */
+    width: 66.26506%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+  /* line 81, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-second .region-sidebar-second {
+    /* Span 1 column, starting in 3rd column from left. */
+    width: 32.53012%;
+    float: right;
+    margin-right: 0;
+  }
+
+  /*
+   * The layout when there are two sidebars.
+   */
+  /* line 91, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars #content {
+    /* Span 2 columns, starting in 2nd column from left. */
+    width: 49.39759%;
+    float: left;
+    margin-right: 1.20482%;
+    float: right;
+  }
+  /* line 96, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+    width: 24.09639%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+  /* line 100, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars .region-sidebar-second {
+    /* Start a new row and span all 3 columns. */
+    width: 24.09639%;
+    float: right;
+    margin-right: 0;
+  }
+}
+@media (min-width: 960px) {
+  /*
+   * The layout when there is only one sidebar, the left one.
+   */
+  /* line 113, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first #content {
+    /* Span 4 columns, starting in 2nd column from left. */
+    width: 74.6988%;
+    float: right;
+    margin-right: 0;
+  }
+  /* line 117, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+    width: 24.09639%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+
+  /*
+   * The layout when there is only one sidebar, the right one.
+   */
+  /* line 127, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-second #content {
+    /* Span 4 columns, starting in 1st column from left. */
+    width: 74.6988%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+  /* line 131, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-second .region-sidebar-second {
+    /* Span 1 column, starting in 5th column from left. */
+    width: 24.09639%;
+    float: right;
+    margin-right: 0;
+  }
+
+  /*
+   * The layout when there are two sidebars.
+   */
+  /* line 141, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars #content {
+    /* Span 3 columns, starting in 2nd column from left. */
+    width: 66.26506%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+    width: 15.66265%;
+    float: left;
+    margin-right: 1.20482%;
+  }
+  /* line 149, ../../sass/layouts/responsive-sidebars.scss */
+  .two-sidebars .region-sidebar-second {
+    /* Span 1 column, starting in 5th column from left. */
+    width: 15.66265%;
+    float: right;
+    margin-right: 0;
+  }
+}
