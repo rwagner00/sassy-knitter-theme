@@ -51,11 +51,6 @@ li a.active {
     margin-bottom: 0;
   }
 
-  .block-menu .block-title,
-  .block-menu-block .block-title {
-    @include element-invisible();
-  }
-
   ul.links, /* Main menu and secondary menu links */
   ul.menu { /* Menu block links */
     margin: 0;
@@ -100,4 +95,12 @@ li a.active {
  */
 
 .block-menu-block {
+}
+
+@include at-breakpoint($tablet-plus) {
+  #navigation {
+    .block-menu .block-title, .block-menu-block .block-title {
+      @include element-invisible();
+    }
+  }
 }

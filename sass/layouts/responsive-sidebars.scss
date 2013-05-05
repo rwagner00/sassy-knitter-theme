@@ -33,25 +33,16 @@
 #footer {
   @include container();
 }
+#navigation {
+  @include span-columns(1 omega, 1);
+}
 
 input {
   max-width: 100%;
 }
 
-/*
- * Navigation bar
- */
 
 @include at-breakpoint($tablet-plus) {
-  #main {
-    padding-top: 3em; /* Move all the children of #main down to make room. */
-    position: relative;
-  }
-  #navigation {
-    position: absolute;
-    top: 0; /* Move the navbar up inside #main's padding. */
-    height: 3em;
-  }
 }
 
 @include at-breakpoint($tablet-only) {

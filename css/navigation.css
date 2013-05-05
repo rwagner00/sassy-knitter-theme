@@ -44,15 +44,6 @@ li a.active {
   margin-bottom: 0;
 }
 /* line 55, ../sass/navigation.scss */
-#navigation .block-menu .block-title,
-#navigation .block-menu-block .block-title {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-/* line 60, ../sass/navigation.scss */
 #navigation ul.links,
 #navigation ul.menu {
   /* Menu block links */
@@ -60,7 +51,7 @@ li a.active {
   padding: 0;
   text-align: left;
 }
-/* line 65, ../sass/navigation.scss */
+/* line 60, ../sass/navigation.scss */
 #navigation ul.links li,
 #navigation ul.menu li {
   /* A simple method to get navigation links to appear in one line. */
@@ -73,7 +64,7 @@ li a.active {
 /*
  * Main menu and Secondary menu links
  */
-/* line 84, ../sass/navigation.scss */
+/* line 79, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
 }
@@ -87,3 +78,13 @@ li a.active {
  * Drupal core has limited ways in which it can display its menus. To get around
  * these limitations, see http://drupal.org/project/menu_block
  */
+@media (min-width: 480px) {
+  /* line 102, ../sass/navigation.scss */
+  #navigation .block-menu .block-title, #navigation .block-menu-block .block-title {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+}
