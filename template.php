@@ -60,12 +60,12 @@
  *   api.drupal.org website is a good place to find which file contains which
  *   function.) Then you can copy the original function in its entirety and
  *   paste it in this template.php file, changing the prefix from theme_ to
- *   susy_test_theme_. For example:
+ *   zen_subtheme_. For example:
  *
  *     original, found in modules/field/field.module: theme_field()
- *     theme override, found in template.php: susy_test_theme_field()
+ *     theme override, found in template.php: zen_subtheme_field()
  *
- *   where susy_test_theme is the name of your sub-theme. For example, the
+ *   where zen_subtheme is the name of your sub-theme. For example, the
  *   zen_classic theme would define a zen_classic_field() function.
  *
  *   Note that base themes can also override theme functions. And those
@@ -111,12 +111,12 @@
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_maintenance_page(&$variables, $hook) {
+function zen_subtheme_preprocess_maintenance_page(&$variables, $hook) {
   // When a variable is manipulated or added in preprocess_html or
   // preprocess_page, that same work is probably needed for the maintenance page
   // as well, so we can just re-use those functions to do that work here.
-  susy_test_theme_preprocess_html($variables, $hook);
-  susy_test_theme_preprocess_page($variables, $hook);
+  zen_subtheme_preprocess_html($variables, $hook);
+  zen_subtheme_preprocess_page($variables, $hook);
 }
 // */
 
@@ -129,7 +129,7 @@ function susy_test_theme_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("html" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_html(&$variables, $hook) {
+function zen_subtheme_preprocess_html(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // The body tag's classes are controlled by the $classes_array variable. To
@@ -147,7 +147,7 @@ function susy_test_theme_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_page(&$variables, $hook) {
+function zen_subtheme_preprocess_page(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -161,11 +161,11 @@ function susy_test_theme_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_node(&$variables, $hook) {
+function zen_subtheme_preprocess_node(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // Optionally, run node-type-specific preprocess functions, like
-  // susy_test_theme_preprocess_node_page() or susy_test_theme_preprocess_node_story().
+  // zen_subtheme_preprocess_node_page() or zen_subtheme_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
@@ -182,7 +182,7 @@ function susy_test_theme_preprocess_node(&$variables, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_comment(&$variables, $hook) {
+function zen_subtheme_preprocess_comment(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -196,7 +196,7 @@ function susy_test_theme_preprocess_comment(&$variables, $hook) {
  *   The name of the template being rendered ("region" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_region(&$variables, $hook) {
+function zen_subtheme_preprocess_region(&$variables, $hook) {
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
@@ -213,7 +213,7 @@ function susy_test_theme_preprocess_region(&$variables, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 /* -- Delete this line if you want to use this function
-function susy_test_theme_preprocess_block(&$variables, $hook) {
+function zen_subtheme_preprocess_block(&$variables, $hook) {
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
